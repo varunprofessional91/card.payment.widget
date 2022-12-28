@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card Widget</title>
+    <meta name="author" content="VK">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="lib/styles.css">
+</head>
+<body>
+<div class="mainContainer">
+    <div class="widgetBox">
+        <h1>Credit Card Form</h1>
+        <div class="creditCardBox">
+            <p class="logoStyle">Credit Card</p>
+            <div id="cardNumberOutput">
+                &#8226;&#8226;&#8226;&#8226;
+                &nbsp;
+                &#8226;&#8226;&#8226;&#8226;
+                &nbsp;
+                &#8226;&#8226;&#8226;&#8226;
+                &nbsp;
+                &#8226;&#8226;&#8226;&#8226;
+            </div>
+            <div class="dateValidation">
+                <div id="cardNameOutput">Your Name</div>
+                <div id="validityThruText">Valid Thru</div>
+                <div id="cardValidityOutput">&nbsp;&#8226;&#8226;/&#8226;&#8226;</div>
+
+            </div>
+        </div>
+
+        <form onsubmit="return false" class="creditCardForm">
+            <label>
+                <input type="text" class="cardNumber" id="cardNumberInput" maxlength="19"
+                       placeholder="Card Number" oninput="cardNumberValidation()"
+                       autocomplete="off">
+            </label>
+            <label>
+                <input type="text" class="cardName" id="cardNameInput" placeholder="Your Name" maxlength="24"
+                       oninput="cardNameValidation()" autocomplete="off"
+                       onkeypress="return (/^[a-zA-Z\s]*$/i.test(event.key))"
+                >
+            </label>
+            <div class="validationBox">
+                <label>
+                    <input class="cardValidityInput" id="cardValidityInput"
+                           type="text" placeholder="DD/YY" maxlength="5"
+                           oninput="cardValidityValidation()"
+                           autocomplete="off">
+                </label>
+                <label>
+                    <input class="cardCvvInput" type="password" placeholder="CVV"
+                           maxlength="3" autocomplete="off">
+                </label>
+            </div>
+            <input class="submitButton" type="submit" value="Pay" onclick="submittedInputValues()">
+        </form>
+
+    </div>
+</div>
+</body>
+<script>
+    "use strict";
+
+    function cardNumberValidation() {
+        document.getElementById('cardNumberInput')
+            .addEventListener('input', function (e) {
+                e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+                document.getElementById("cardNumberOutput").innerHTML = (e.target.value);
+            });
+    }
+
+    function cardNameValidation() {
+        document.getElementById('cardNameInput')
+            .addEventListener('input', function (e) {
+                document.getElementById("cardNameOutput").innerHTML = (e.target.value).toUpperCase()
+                // (e.target.value)
+                // .toLowerCase()
+                // .replace(/['"]/g, '')
+                // .replace(/\W+/g, ' ')
+                // .replace(/ (.)/g, function ($1) {
+                //     return $1.toUpperCase();
+                // })
+                // .replace(/ /g, ' ');
+                //    for camelcase uncomment
+            });
+    }
+
+    function cardValidityValidation() {
+        let getValue = document.getElementById('cardValidityInput')
+        getValue.value = getValue.value.replace(/^(\d\d)(\d)$/g, '$1/$2')
+            .replace(/^(\d\d\/\d\d)(\d+)$/g, '$1/$2')
+            .replace(/[^\d\/]/g, '');
+        getValue
+            .addEventListener('input', function (e) {
+                document.getElementById("cardValidityOutput").innerHTML = (e.target.value);
+            });
+    }
+
+    function submittedInputValues() {
+        let crNum = document.getElementById('cardNumberInput').value;
+        let crNam = document.getElementById('cardNameInput').value;
+        let crVal = document.getElementById('cardValidityInput').value;
+        alert(crNam + " || " + crNum + " || " + crVal)
+    }
+
+</script>
+</html>

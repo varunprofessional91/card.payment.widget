@@ -1,0 +1,205 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: Calibri, monospace;
+    font-size: 1em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+body {
+    background: rgb(245, 245, 239);
+}
+
+*:focus {
+    outline: none;
+}
+
+h1 {
+    font-size: 1.6em;
+}
+
+.mainContainer {
+    margin: 0 auto;
+    padding: 20px 10px;
+    width: 50%;
+    min-width: 500px;
+    height: 700px;
+    text-align: center;
+    background: white;
+}
+
+.creditCardBox, .creditCardForm {
+    margin: 30px auto;
+    width: 380px;
+    height: 230px;
+    border-radius: 10px;
+    background: rgba(57, 57, 57, 0.6);
+    opacity: 0.9;
+}
+
+.creditCardBox {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 111, 253, 0.7));
+}
+
+.creditCardBox * {
+    color: white;
+}
+
+.creditCardForm {
+    background: transparent;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
+.logoStyle {
+    margin: 10% 0 0 71%;
+    padding: 5% 3% 0 0;
+    width: 110px;
+    text-align: center;
+    height: 70px;
+    font-size: 1.1em;
+}
+
+#cardNumberOutput {
+    margin-top: 8px;
+    font-size: 1.6em;
+    height: 35px;
+    letter-spacing: 3px;
+    padding: 0 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.dateValidation {
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns: 62% 22% 16%;
+    overflow: hidden;
+    padding: 0 25px;
+}
+
+#cardNameOutput, #cardValidityOutput {
+    font-size: 1em;
+    height: 35px;
+    letter-spacing: 1px;
+    overflow: hidden;
+    text-align: left;
+}
+
+#validityThruText, #cardValidityOutput {
+    text-align: right;
+}
+
+.cardNumber, .cardName, .cardValidityInput, .cardCvvInput {
+    width: 375px;
+    height: 45px;
+    border-radius: 5px;
+    border: 3px solid #808080;
+    padding: 4px 10px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.cardNumber {
+    padding: 4px 10px 4px 10px;
+    background: url(icons/cardnumber.svg) no-repeat 97% 56%;
+    background-size: 29px;
+}
+
+.cardNumber:focus {
+    animation-duration: 2s;
+    background: url(icons/cardnumberhover.svg) no-repeat 97% 56%;
+    background-size: 29px;
+}
+
+@keyframes example {
+    from {
+        background: url(icons/cardnumber.svg) no-repeat 97% 56%;
+        background-size: 29px;
+    }
+    to {
+        background: url(icons/cardnumberhover.svg) no-repeat 97% 56%;
+        background-size: 29px;
+    }
+}
+
+.cardName {
+    padding: 4px 40px 4px 20px;
+    background: url(icons/cardname.svg) no-repeat 97% 56%;
+    background-size: 29px;
+}
+
+.cardName:focus {
+    background: url(icons/cardnamehover.svg) no-repeat 97% 56%;
+    background-size: 29px;
+}
+
+.cardValidityInput, .cardCvvInput {
+    width: 175px;
+}
+
+.cardValidityInput {
+    background: url(icons/cardvalidation.svg) no-repeat 95% 56%;
+    background-size: 25px;
+}
+
+.cardValidityInput:focus {
+    background: url(icons/cardvalidationhover.svg) no-repeat 95% 56%;
+    background-size: 25px;
+}
+
+.cardCvvInput {
+    background: url(icons/cardcvv.svg) no-repeat 95% 56%;
+    background-size: 28px;
+}
+
+.cardCvvInput:focus {
+    background: url(icons/cardcvvhover.svg) no-repeat 95% 56%;
+    background-size: 28px;
+}
+
+.cardNumber:focus,
+.cardName:focus,
+.cardValidityInput:focus,
+.cardCvvInput:focus {
+    border-color: rgba(26, 25, 25, 1);
+}
+
+.validationBox {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 5%;
+}
+
+.submitButton {
+    background: rgb(0, 111, 253);
+    width: 375px;
+    height: 45px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    margin: 10px auto 0 auto;
+}
+
+.submitButton:hover {
+    cursor: pointer;
+    background-image: linear-gradient(rgb(51, 64, 98), rgb(29, 131, 226));
+}
